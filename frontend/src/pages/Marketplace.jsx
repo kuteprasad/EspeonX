@@ -8,12 +8,12 @@ const Marketplace = () => {
   const CONTRACT_ADDRESS = "0x2ADdBE2bAaf5B9D18328a1BCc918ec14BDc6a384";
 
   const assets = [
-    { id: 1, name: "Epic Sword", price: "0.000", image: "/weapons/1.jpeg" },
-    { id: 2, name: "Mystic Shield", price: "0.008", image: "/weapons/2.jpeg" },
-    { id: 3, name: "Dragon Helmet", price: "0.012", image: "/weapons/3.jpeg" },
-    { id: 4, name: "Fire Bow", price: "0.07", image: "/weapons/4.jpeg" },
-    { id: 5, name: "Stealth Boots", price: "0.004", image: "/weapons/5.jpeg" },
-    { id: 6, name: "Thunder Axe", price: "0.005", image: "/weapons/6.jpeg" },
+    { id: 1, name: "Epic Sword", price: "0.000", image: "/weapons/1.jpg" },
+    { id: 2, name: "Mystic Shield", price: "0.001", image: "/weapons/2.jpg" },
+    { id: 3, name: "Dragon Helmet", price: "0.012", image: "/weapons/3.jpg" },
+    { id: 4, name: "Fire Bow", price: "0.07", image: "/weapons/4.jpg" },
+    { id: 5, name: "Stealth Boots", price: "0.004", image: "/weapons/5.jpg" },
+    { id: 6, name: "Thunder Axe", price: "0.005", image: "/weapons/6.jpg" },
   ];
 
   const buyNFT = async (asset) => {
@@ -95,7 +95,7 @@ const Marketplace = () => {
             className="bg-gray-800 p-4 rounded-md shadow-lg transition-all transform hover:scale-105 hover:shadow-xl border border-gray-700"
           >
             <div className="w-full h-40 bg-gray-700 flex items-center justify-center text-white text-xl font-bold">
-              {asset.name}
+              <img src={asset.image} alt={asset.name} className="w-full h-full object-cover rounded-md" />
             </div>
             <div className="mt-3 flex justify-between items-center">
               <span className="text-lg font-semibold">{asset.name}</span>
