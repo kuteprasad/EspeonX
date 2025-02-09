@@ -51,7 +51,7 @@ const Governance = () => {
   const totalVotes = proposals.reduce((acc, p) => acc + p.votesFor + p.votesAgainst, 0)
 
   return (
-    <div className="container mx-auto p-6 space-y-8">
+    <div className="mt-20 container mx-auto p-6 space-y-8">
       <div className="flex justify-between items-center">
         <h1 className="text-4xl font-bold text-green-400">Community Governance</h1>
         <Dialog open={open} onOpenChange={setOpen}>

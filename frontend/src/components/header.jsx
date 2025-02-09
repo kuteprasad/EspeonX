@@ -24,7 +24,6 @@ import { client } from "../client.js";
 
 const navItems = [
   { name: "Tournament", icon: <LayoutDashboard size={18} />, protected: true },
-  { name: "Stages", icon: <GamepadIcon size={18} />, protected: false },
   { name: "Marketplace", icon: <ShoppingCart size={18} />, protected: true },
   { name: "Leaderboard", icon: <Trophy size={18} />, protected: false },
   { name: "Governance", icon: <Vote size={18} />, protected: true }
@@ -64,12 +63,7 @@ const Header = () => {
 
         {/* Desktop Navigation - Centered */}
         <div className="hidden md:flex items-center gap-8 text-base font-medium text-white">
-          {[
-            { name: "Tournament", icon: <LayoutDashboard size={16} /> },
-            { name: "Governance", icon: <GamepadIcon size={16} /> },
-            { name: "Marketplace", icon: <ShoppingCart size={16} /> },
-            { name: "Leaderboard", icon: <Trophy size={16} /> }
-          ].map(({ name, icon }, index) => (
+          {navItems.map(({ name, icon }, index) => (
             <Link
               key={index}
               to={`/${name.toLowerCase()}`}
