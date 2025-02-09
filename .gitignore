@@ -1,0 +1,99 @@
+# Dependencies
+/node_modules
+node_modules/
+/.pnp
+.pnp.js
+yarn.lock
+package-lock.json
+
+# Testing
+/coverage
+
+# Next.js
+/.next/
+/out/
+next-env.d.ts
+
+# Production
+/build
+/dist
+
+# Environment files
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
+.env*.local
+
+# Blockchain / Hardhat
+cache/
+artifacts/
+typechain-types/
+coverage.json
+coverage/
+.openzeppelin/
+
+# Debug logs
+npm-debug.log*
+yarn-debug.log*
+yarn-error.log*
+logs
+*.log
+
+# IDE / Editors
+.idea/
+.vscode/
+*.swp
+*.swo
+.DS_Store
+*.pem
+
+# MongoDB
+data/
+dump/
+
+# Misc
+.DS_Store
+*.pem
+.vercel
+.eslintcache
+
+# Local Netlify folder
+.netlify
+
+# Hardhat files
+cache
+artifacts
+
+# Truffle
+.secret
+build/
+secrets.json
+
+# IPFS
+.ipfs/
+
+# Solidity coverage
+coverage/
+coverage.json
+
+# Client-side dependencies
+/client/node_modules
+/client/build
+/client/.env
+
+# Server-side dependencies
+/server/node_modules
+/server/build
+/server/.env
+
+# Blockchain specific
+/blockchain/node_modules
+/blockchain/build
+/blockchain/.env
+
+# Temp files
+*.tmp
+*.temp
+.cache
