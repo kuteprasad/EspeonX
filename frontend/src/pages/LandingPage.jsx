@@ -14,8 +14,13 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { GlowingButton } from "@/components/ui/GlowingButton";
+import { useNavigate } from "react-router-dom";
+
+
+
 
 const LandingPage = () => {
+  const navigate = useNavigate();
   return (
     <main className="flex flex-col gap-10 sm:gap-20 py-7 sm:py-16 bg-gray-900 text-gray-100">
       {/* Header Section */}
@@ -38,7 +43,7 @@ const LandingPage = () => {
             Empowering Players with True Ownership, Fair Rewards, and a Transparent Gaming Economy
             </p>
             <div className="mt-6 sm:mt-10">
-              <GlowingButton text="Get Started" onClick={() => alert("Button Clicked!")} />
+              <GlowingButton text="Get Started" onClick={() => navigate("/marketplace")} />
             </div>
           </div>
         </div>
