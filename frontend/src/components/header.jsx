@@ -66,7 +66,7 @@ const Header = () => {
         <div className="hidden md:flex items-center gap-8 text-base font-medium text-white">
           {[
             { name: "Tournament", icon: <LayoutDashboard size={16} /> },
-            { name: "Stages", icon: <GamepadIcon size={16} /> },
+            { name: "Governance", icon: <GamepadIcon size={16} /> },
             { name: "Marketplace", icon: <ShoppingCart size={16} /> },
             { name: "Leaderboard", icon: <Trophy size={16} /> }
           ].map(({ name, icon }, index) => (

@@ -8,9 +8,9 @@ import "./App.css";
 import Dashboard from "./pages/Tournament";
 import Marketplace from "./pages/Marketplace";
 import Leaderboard from "./pages/Leaderboard";
-import Stages from "./pages/Stages";
+
 import Nft from "./pages/Nft";
-import Tournament from "./pages/Tournament";
+
 import Game1 from "./games/Game1";
 import Governance from "./pages/Governance";
 import { BlockchainProvider } from "./context/BlockchainContext";
@@ -24,8 +24,8 @@ const router = createBrowserRouter([
         element: <LandingPage />,
       },
       {
-        path: "/stages",
-        element: <Stages />,
+        path: "/governance",
+        element: <Governance />,
       },
       {
         path: "/leaderboard",
