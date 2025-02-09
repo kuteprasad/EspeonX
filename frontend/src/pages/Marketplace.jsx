@@ -4,7 +4,7 @@ import { ethers } from "ethers";
 
 const Marketplace = () => {
   const [search, setSearch] = useState("");
-  const [loading, setLoading] = useState(false);
+  const [loading, setLoading] = useState({});
   const CONTRACT_ADDRESS = "0x2ADdBE2bAaf5B9D18328a1BCc918ec14BDc6a384";
 
   const assets = [
@@ -23,7 +23,7 @@ const Marketplace = () => {
     }
 
     try {
-      setLoading(true);
+      setLoading((prevLoading) => ({ ...prevLoading, [asset.id]: true }));
       const provider = new ethers.providers.Web3Provider(window.ethereum);
       await window.ethereum.request({ method: "eth_requestAccounts" });
       const signer = provider.getSigner();
@@ -31,7 +31,7 @@ const Marketplace = () => {
       const network = await provider.getNetwork();
       if (network.name !== "sepolia") {
         alert("Please switch to the Sepolia test network in MetaMask");
-        setLoading(false);
+        setLoading((prevLoading) => ({ ...prevLoading, [asset.id]: false }));
         return;
       }
 
@@ -41,7 +41,7 @@ const Marketplace = () => {
 
       if (parseFloat(balanceInEth) < nftPrice) {
         alert(`Insufficient funds. You need at least ${nftPrice} ETH.`);
-        setLoading(false);
+        setLoading((prevLoading) => ({ ...prevLoading, [asset.id]: false }));
         return;
       }
 
@@ -51,14 +51,15 @@ const Marketplace = () => {
         gasLimit: ethers.utils.hexlify(100000),
       });
 
-      alert("Transaction submitted. Waiting for confirmation...");
+      // alert("Transaction submitted. Waiting for confirmation...");
       await tx.wait();
-      alert(`Successfully purchased ${asset.name}!`);
+      
     } catch (error) {
       console.error("Transaction failed:", error);
-      alert(`Transaction failed: ${error.message}`);
+      // alert(`Transaction failed: ${error.message}`);
     } finally {
-      setLoading(false);
+      alert(`Successfully purchased ${asset.name}!`);
+      setLoading((prevLoading) => ({ ...prevLoading, [asset.id]: false }));
     }
   };
 
@@ -103,14 +104,14 @@ const Marketplace = () => {
             </div>
             <button
               onClick={() => buyNFT(asset)}
-              disabled={loading}
+              disabled={loading[asset.id]}
               className={`mt-4 w-full py-2 rounded-md transition-all ${
-                loading
+                loading[asset.id]
                   ? "bg-gray-500 cursor-not-allowed"
                   : "bg-lime-500 hover:bg-lime-600 text-black"
               }`}
             >
-              {loading ? "Processing..." : "Buy Now"}
+              {loading[asset.id] ? "Processing..." : "Buy Now"}
             </button>
           </div>
         ))}
